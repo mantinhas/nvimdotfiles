@@ -6,16 +6,16 @@ lsp_zero.on_attach(function(client, bufnr)
 	local opts = {buffer = bufnr, remap = false}
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-	--vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+	-- vim.keymap.set("i", "<C->", function() vim.lsp.buf.signature_help() end, opts)
 	vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-	vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+	-- vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-	  'clangd','texlab','java_language_server',"pyright","lua_ls" --SQL, AWK
+	  'clangd','java_language_server',"pyright","lua_ls" --SQL, AWK
   },
   handlers = {
     lsp_zero.default_setup,
